@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AuraSix | Central do Diretor de Parcerias</title>
+<title>AuraSix Experience | Central do Diretor de Parcerias</title>
 
 <style>
 body {
@@ -21,7 +21,7 @@ h1 {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 20px;
     margin-top: 30px;
 }
@@ -33,10 +33,7 @@ h1 {
     box-shadow: 0 0 15px rgba(0,255,255,0.2);
 }
 
-.status {
-    font-weight: bold;
-}
-
+.status { font-weight: bold; }
 .verde { color: #00ff88; }
 .amarelo { color: #ffd700; }
 .vermelho { color: #ff4d4d; }
@@ -51,9 +48,7 @@ button {
     margin-top: 8px;
 }
 
-button:hover {
-    background: #00ffff;
-}
+button:hover { background: #00ffff; }
 
 select {
     margin-top: 5px;
@@ -79,71 +74,9 @@ select {
 
 <body>
 
-<h1>Central Estratégica - Diretor de Parcerias AuraSix</h1>
+<h1>Central Estratégica - Diretor de Parcerias | AuraSix Experience</h1>
 
-<div class="container">
-
-<!-- RESTAURANTE -->
-<div class="card">
-<h2>Restaurante Sabor Prime</h2>
-<p class="status verde">Perfil: Verde (Alta Confiabilidade)</p>
-<p>Avaliações: ⭐⭐⭐⭐⭐ Excelente qualidade e pontualidade</p>
-<p>Custo base: R$ <span id="c1">8000</span></p>
-<p>Faturamento estimado: R$ 20000</p>
-
-<select onchange="negociar(0, this.value)">
-<option value="0">Sem desconto</option>
-<option value="5">Desconto 5%</option>
-<option value="10">Desconto 10%</option>
-<option value="15">Desconto 15%</option>
-</select>
-
-<button onclick="fecharParceria(0)">Fechar Parceria</button>
-
-<div id="res0" class="resultado"></div>
-</div>
-
-<!-- DECORAÇÃO -->
-<div class="card">
-<h2>Decora Vision</h2>
-<p class="status amarelo">Perfil: Amarelo (Média Confiabilidade)</p>
-<p>Avaliações: ⭐⭐⭐ Boa qualidade, atrasos ocasionais</p>
-<p>Custo base: R$ <span id="c2">5000</span></p>
-<p>Faturamento estimado: R$ 12000</p>
-
-<select onchange="negociar(1, this.value)">
-<option value="0">Sem desconto</option>
-<option value="5">Desconto 5%</option>
-<option value="10">Desconto 10%</option>
-<option value="15">Desconto 15%</option>
-</select>
-
-<button onclick="fecharParceria(1)">Fechar Parceria</button>
-
-<div id="res1" class="resultado"></div>
-</div>
-
-<!-- SOM -->
-<div class="card">
-<h2>TechSound Eventos</h2>
-<p class="status vermelho">Perfil: Vermelho (Baixa Confiabilidade)</p>
-<p>Avaliações: ⭐⭐ Histórico de falhas técnicas</p>
-<p>Custo base: R$ <span id="c3">3000</span></p>
-<p>Faturamento estimado: R$ 6000</p>
-
-<select onchange="negociar(2, this.value)">
-<option value="0">Sem desconto</option>
-<option value="5">Desconto 5%</option>
-<option value="10">Desconto 10%</option>
-<option value="15">Desconto 15%</option>
-</select>
-
-<button onclick="fecharParceria(2)">Fechar Parceria</button>
-
-<div id="res2" class="resultado"></div>
-</div>
-
-</div>
+<div class="container" id="cards"></div>
 
 <div class="ranking">
 <h2>Ranking de Melhores Parceiros (Por Lucro)</h2>
@@ -153,42 +86,149 @@ select {
 <script>
 
 let parceiros = [
+
 {
-nome: "Restaurante Sabor Prime",
-custo: 8000,
-faturamento: 20000,
-lucro: 12000,
-oferece: "Buffet premium, drinks exclusivos e cardápio personalizado"
+nome: "Sabor Supremo Buffet",
+perfil: "verde",
+custo: 9000,
+faturamento: 24000,
+oferece: "Buffet premium, drinks autorais, chefs ao vivo, menu personalizado, ilha gourmet temática",
+avaliacoes: [
+"Vision Eventos: Atendimento impecável.",
+"Prime Fest: Qualidade acima do esperado.",
+"Elite Produções: Entrega pontual e organizada.",
+"NovaEra Shows: Público elogiou muito.",
+"Conecta Business: Excelente padrão VIP.",
+"Urban Stage: Parceria sólida.",
+"Futuro Experience: Gastronomia diferenciada."
+]
 },
+
 {
-nome: "Decora Vision",
+nome: "DecoraLux Cenografia",
+perfil: "verde",
+custo: 7000,
+faturamento: 18000,
+oferece: "Cenografia futurista, painéis LED, iluminação decorativa, túneis instagramáveis, design temático",
+avaliacoes: [
+"Impacto Eventos: Visual impressionante.",
+"LevelUp Fest: Transformou o ambiente.",
+"StagePro: Ótima execução.",
+"Infinity Shows: Muito profissional.",
+"VisionArt: Público adorou.",
+"Urban Elite: Organização impecável.",
+"Dream Night: Decoração marcante."
+]
+},
+
+{
+nome: "FlashDrink Bar Show",
+perfil: "amarelo",
+custo: 6000,
+faturamento: 14000,
+oferece: "Bar móvel, drinks neon, bartender performático, cardápio personalizado, experiência sensorial",
+avaliacoes: [
+"Prime Eventos: Drinks criativos.",
+"Glow Fest: Pequeno atraso.",
+"Urban Night: Bom custo-benefício.",
+"NeoStage: Atendimento ok.",
+"Vibe Produções: Público aprovou.",
+"NextLevel: Organização média.",
+"Epic Show: Resultado positivo."
+]
+},
+
+{
+nome: "MediaVision Digital",
+perfil: "verde",
 custo: 5000,
-faturamento: 12000,
-lucro: 7000,
-oferece: "Decoração temática, cenografia futurista e ambientação instagramável"
+faturamento: 20000,
+oferece: "Divulgação digital, tráfego pago, mídia social, cobertura ao vivo, marketing estratégico",
+avaliacoes: [
+"Start Business: Grande alcance.",
+"ShowTime: Aumentou público.",
+"Conecta Pro: Ótima estratégia.",
+"Infinity Corp: Crescimento real.",
+"Urban Connect: Resultados rápidos.",
+"Vision Up: Excelente suporte.",
+"Future Group: Alto engajamento."
+]
 },
+
 {
-nome: "TechSound Eventos",
-custo: 3000,
-faturamento: 6000,
-lucro: 3000,
-oferece: "Som e iluminação profissional para eventos"
+nome: "SafeGuard Eventos",
+perfil: "vermelho",
+custo: 4000,
+faturamento: 9000,
+oferece: "Segurança privada, controle de acesso, revista digital, equipe treinada",
+avaliacoes: [
+"Prime Night: Falta de organização.",
+"Urban Fest: Pequenos conflitos.",
+"Stage Plus: Atendimento regular.",
+"Glow Corp: Estrutura básica.",
+"EventPro: Precisa melhorar.",
+"Vibe Business: Experiência média.",
+"Level Experience: Serviço limitado."
+]
 }
+
 ];
+
+function gerarCards() {
+
+let container = document.getElementById("cards");
+
+parceiros.forEach((p, index) => {
+
+let perfilClass = p.perfil;
+let lucro = p.faturamento - p.custo;
+p.lucro = lucro;
+
+container.innerHTML += `
+<div class="card">
+<h2>${p.nome}</h2>
+<p class="status ${perfilClass}">Perfil: ${p.perfil.toUpperCase()}</p>
+<p>Custo base: R$ ${p.custo}</p>
+<p>Faturamento estimado: R$ ${p.faturamento}</p>
+
+<button onclick="verAvaliacoes(${index})">Ver Avaliações</button>
+
+<select onchange="negociar(${index}, this.value)">
+<option value="0">Sem desconto</option>
+<option value="5">Desconto 5%</option>
+<option value="10">Desconto 10%</option>
+<option value="15">Desconto 15%</option>
+</select>
+
+<button onclick="fecharParceria(${index})">Fechar Parceria</button>
+
+<div id="res${index}" class="resultado"></div>
+</div>
+`;
+});
+
+atualizarRanking();
+}
+
+function verAvaliacoes(index) {
+
+let lista = parceiros[index].avaliacoes.join("<br>");
+let div = document.getElementById("res"+index);
+div.style.display = "block";
+div.innerHTML = "<strong>Avaliações de Empresas Parceiras:</strong><br><br>" + lista;
+}
 
 function negociar(index, desconto) {
 
 let parceiro = parceiros[index];
+let novoCusto = parceiro.custo - (parceiro.custo * desconto/100);
+parceiro.lucro = parceiro.faturamento - novoCusto;
 
-let novoCusto = parceiro.custo - (parceiro.custo * desconto / 100);
-let lucro = parceiro.faturamento - novoCusto;
-
-parceiro.lucro = lucro;
-
-document.getElementById("res"+index).style.display = "block";
-document.getElementById("res"+index).innerHTML =
+let div = document.getElementById("res"+index);
+div.style.display = "block";
+div.innerHTML =
 "Novo custo: R$ " + novoCusto.toFixed(2) + "<br>" +
-"Lucro estimado: R$ " + lucro.toFixed(2);
+"Lucro estimado: R$ " + parceiro.lucro.toFixed(2);
 
 atualizarRanking();
 }
@@ -197,13 +237,13 @@ function fecharParceria(index) {
 
 let parceiro = parceiros[index];
 
-document.getElementById("res"+index).style.display = "block";
-document.getElementById("res"+index).innerHTML =
-"<strong>Parceria Fechada com Sucesso!</strong><br><br>" +
+let div = document.getElementById("res"+index);
+div.style.display = "block";
+div.innerHTML =
+"<strong>Parceria Confirmada com AuraSix Experience!</strong><br><br>" +
 "Empresa: " + parceiro.nome + "<br>" +
 "Oferece: " + parceiro.oferece + "<br>" +
 "Custo atual: R$ " + (parceiro.faturamento - parceiro.lucro).toFixed(2) + "<br>" +
-"Faturamento estimado: R$ " + parceiro.faturamento + "<br>" +
 "Lucro projetado: R$ " + parceiro.lucro.toFixed(2);
 
 atualizarRanking();
@@ -217,13 +257,11 @@ lista.innerHTML = "";
 parceiros.sort((a,b) => b.lucro - a.lucro);
 
 parceiros.forEach(p => {
-let item = document.createElement("li");
-item.innerHTML = p.nome + " - Lucro: R$ " + p.lucro.toFixed(2);
-lista.appendChild(item);
+lista.innerHTML += `<li>${p.nome} - Lucro: R$ ${p.lucro.toFixed(2)}</li>`;
 });
 }
 
-atualizarRanking();
+gerarCards();
 
 </script>
 
