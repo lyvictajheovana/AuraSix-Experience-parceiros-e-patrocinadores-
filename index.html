@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AuraSix Experience | Central do Diretor de Parcerias</title>
+<title>AuraSix Experience | Central Estratégica de Parcerias</title>
 
 <style>
 body {
@@ -30,10 +30,10 @@ h1 {
     background: #1a1a35;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,255,255,0.2);
+    box-shadow: 0 0 15px rgba(0,255,255,0.15);
 }
 
-.status { font-weight: bold; }
+.status { font-weight: bold; margin-bottom: 5px; }
 .verde { color: #00ff88; }
 .amarelo { color: #ffd700; }
 .vermelho { color: #ff4d4d; }
@@ -45,7 +45,7 @@ button {
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
-    margin-top: 8px;
+    margin-top: 6px;
 }
 
 button:hover { background: #00ffff; }
@@ -61,6 +61,14 @@ select {
     background: #141428;
     border-radius: 8px;
     display: none;
+}
+
+.review {
+    background: #0f0f25;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    font-size: 14px;
 }
 
 .ranking {
@@ -79,117 +87,69 @@ select {
 <div class="container" id="cards"></div>
 
 <div class="ranking">
-<h2>Ranking de Melhores Parceiros (Por Lucro)</h2>
+<h2>Ranking por Lucro Projetado</h2>
 <ul id="rankingLista"></ul>
 </div>
 
 <script>
 
-let parceiros = [
-
-{
-nome: "Sabor Supremo Buffet",
-perfil: "verde",
-custo: 9000,
-faturamento: 24000,
-oferece: "Buffet premium, drinks autorais, chefs ao vivo, menu personalizado, ilha gourmet temática",
-avaliacoes: [
-"Vision Eventos: Atendimento impecável.",
-"Prime Fest: Qualidade acima do esperado.",
-"Elite Produções: Entrega pontual e organizada.",
-"NovaEra Shows: Público elogiou muito.",
-"Conecta Business: Excelente padrão VIP.",
-"Urban Stage: Parceria sólida.",
-"Futuro Experience: Gastronomia diferenciada."
-]
-},
-
-{
-nome: "DecoraLux Cenografia",
-perfil: "verde",
-custo: 7000,
-faturamento: 18000,
-oferece: "Cenografia futurista, painéis LED, iluminação decorativa, túneis instagramáveis, design temático",
-avaliacoes: [
-"Impacto Eventos: Visual impressionante.",
-"LevelUp Fest: Transformou o ambiente.",
-"StagePro: Ótima execução.",
-"Infinity Shows: Muito profissional.",
-"VisionArt: Público adorou.",
-"Urban Elite: Organização impecável.",
-"Dream Night: Decoração marcante."
-]
-},
-
-{
-nome: "FlashDrink Bar Show",
-perfil: "amarelo",
-custo: 6000,
-faturamento: 14000,
-oferece: "Bar móvel, drinks neon, bartender performático, cardápio personalizado, experiência sensorial",
-avaliacoes: [
-"Prime Eventos: Drinks criativos.",
-"Glow Fest: Pequeno atraso.",
-"Urban Night: Bom custo-benefício.",
-"NeoStage: Atendimento ok.",
-"Vibe Produções: Público aprovou.",
-"NextLevel: Organização média.",
-"Epic Show: Resultado positivo."
-]
-},
-
-{
-nome: "MediaVision Digital",
-perfil: "verde",
-custo: 5000,
-faturamento: 20000,
-oferece: "Divulgação digital, tráfego pago, mídia social, cobertura ao vivo, marketing estratégico",
-avaliacoes: [
-"Start Business: Grande alcance.",
-"ShowTime: Aumentou público.",
-"Conecta Pro: Ótima estratégia.",
-"Infinity Corp: Crescimento real.",
-"Urban Connect: Resultados rápidos.",
-"Vision Up: Excelente suporte.",
-"Future Group: Alto engajamento."
-]
-},
-
-{
-nome: "SafeGuard Eventos",
-perfil: "vermelho",
-custo: 4000,
-faturamento: 9000,
-oferece: "Segurança privada, controle de acesso, revista digital, equipe treinada",
-avaliacoes: [
-"Prime Night: Falta de organização.",
-"Urban Fest: Pequenos conflitos.",
-"Stage Plus: Atendimento regular.",
-"Glow Corp: Estrutura básica.",
-"EventPro: Precisa melhorar.",
-"Vibe Business: Experiência média.",
-"Level Experience: Serviço limitado."
-]
+function gerarAvaliacoes() {
+return [
+{empresa:"Vision Eventos", estrelas:"⭐⭐⭐⭐⭐", comentario:"Entrega impecável e público satisfeito."},
+{empresa:"Prime Fest", estrelas:"⭐⭐⭐⭐", comentario:"Boa organização e suporte rápido."},
+{empresa:"Urban Shows", estrelas:"⭐⭐⭐⭐⭐", comentario:"Excelente parceria estratégica."},
+{empresa:"Infinity Group", estrelas:"⭐⭐⭐", comentario:"Boa execução, mas pode melhorar."},
+{empresa:"Glow Produções", estrelas:"⭐⭐⭐⭐", comentario:"Ótimo custo-benefício."},
+{empresa:"LevelUp Experience", estrelas:"⭐⭐⭐⭐⭐", comentario:"Alta qualidade e profissionalismo."},
+{empresa:"NeoStage Eventos", estrelas:"⭐⭐⭐", comentario:"Serviço adequado ao valor."}
+];
 }
 
-];
+let parceiros = [];
+
+function criarParceiro(nome, perfil, custo, faturamento, oferece) {
+parceiros.push({
+nome, perfil, custo, faturamento,
+lucro: faturamento - custo,
+oferece,
+avaliacoes: gerarAvaliacoes()
+});
+}
+
+/* 5 VERDES */
+criarParceiro("Sabor Elite Buffet","verde",8750.50,23890.75,"Buffet premium, chefs ao vivo, ilha gourmet temática e drinks exclusivos.");
+criarParceiro("LuxDecor Cenografia","verde",7320.80,18650.90,"Cenografia futurista, painéis LED 3D e ambientes instagramáveis.");
+criarParceiro("MediaPulse Digital","verde",5980.40,21450.60,"Marketing digital, tráfego pago e cobertura ao vivo.");
+criarParceiro("FlashBar Experience","verde",6890.35,17200.80,"Bar show com drinks neon, bartenders performáticos.");
+criarParceiro("TechVision Som & Luz","verde",9450.90,26000.45,"Iluminação inteligente, palco digital e efeitos especiais.");
+
+/* 5 AMARELOS */
+criarParceiro("DecorMix Produções","amarelo",6540.70,15890.20,"Decoração temática personalizada e ambientação criativa.");
+criarParceiro("StreetFood Prime","amarelo",7125.65,16540.30,"Food trucks gourmet e cardápios variados.");
+criarParceiro("ClickPro Fotografia","amarelo",4830.90,13250.40,"Cobertura fotográfica e vídeos promocionais.");
+criarParceiro("SoundBeat Eventos","amarelo",8210.55,17680.75,"Som profissional e iluminação básica.");
+criarParceiro("Interactive Play Zone","amarelo",5340.20,14990.10,"Área interativa com jogos tecnológicos e experiências VR.");
+
+/* 5 VERMELHOS */
+criarParceiro("SafeControl Segurança","vermelho",4210.80,9320.45,"Equipe de segurança básica e controle de acesso.");
+criarParceiro("PromoLite Mídia","vermelho",3780.60,8840.30,"Divulgação simples em redes sociais.");
+criarParceiro("Basic Drinks Bar","vermelho",5120.95,10980.25,"Bar tradicional com cardápio padrão.");
+criarParceiro("StageSimples Estrutura","vermelho",6890.40,12150.80,"Palco modular básico e estrutura simples.");
+criarParceiro("EventStart Apoio","vermelho",4500.50,9900.60,"Equipe de apoio e recepção convencional.");
 
 function gerarCards() {
 
 let container = document.getElementById("cards");
 
-parceiros.forEach((p, index) => {
-
-let perfilClass = p.perfil;
-let lucro = p.faturamento - p.custo;
-p.lucro = lucro;
+parceiros.forEach((p,index)=>{
 
 container.innerHTML += `
 <div class="card">
 <h2>${p.nome}</h2>
-<p class="status ${perfilClass}">Perfil: ${p.perfil.toUpperCase()}</p>
-<p>Custo base: R$ ${p.custo}</p>
-<p>Faturamento estimado: R$ ${p.faturamento}</p>
+<p class="status ${p.perfil}">Perfil: ${p.perfil.toUpperCase()}</p>
+<p><strong>Propaganda:</strong> ${p.oferece}</p>
+<p>Custo base: R$ ${p.custo.toFixed(2)}</p>
+<p>Faturamento estimado: R$ ${p.faturamento.toFixed(2)}</p>
 
 <button onclick="verAvaliacoes(${index})">Ver Avaliações</button>
 
@@ -210,54 +170,48 @@ container.innerHTML += `
 atualizarRanking();
 }
 
-function verAvaliacoes(index) {
-
-let lista = parceiros[index].avaliacoes.join("<br>");
-let div = document.getElementById("res"+index);
-div.style.display = "block";
-div.innerHTML = "<strong>Avaliações de Empresas Parceiras:</strong><br><br>" + lista;
+function verAvaliacoes(index){
+let div=document.getElementById("res"+index);
+div.style.display="block";
+div.innerHTML="<strong>Avaliações:</strong><br><br>";
+parceiros[index].avaliacoes.forEach(r=>{
+div.innerHTML+=`
+<div class="review">
+<strong>${r.empresa}</strong><br>
+${r.estrelas}<br>
+${r.comentario}
+</div>`;
+});
 }
 
-function negociar(index, desconto) {
-
-let parceiro = parceiros[index];
-let novoCusto = parceiro.custo - (parceiro.custo * desconto/100);
-parceiro.lucro = parceiro.faturamento - novoCusto;
-
-let div = document.getElementById("res"+index);
-div.style.display = "block";
-div.innerHTML =
-"Novo custo: R$ " + novoCusto.toFixed(2) + "<br>" +
-"Lucro estimado: R$ " + parceiro.lucro.toFixed(2);
-
+function negociar(index,desconto){
+let p=parceiros[index];
+let novoCusto=p.custo-(p.custo*desconto/100);
+p.lucro=p.faturamento-novoCusto;
+let div=document.getElementById("res"+index);
+div.style.display="block";
+div.innerHTML=`Novo custo: R$ ${novoCusto.toFixed(2)}<br>
+Lucro estimado: R$ ${p.lucro.toFixed(2)}`;
 atualizarRanking();
 }
 
-function fecharParceria(index) {
-
-let parceiro = parceiros[index];
-
-let div = document.getElementById("res"+index);
-div.style.display = "block";
-div.innerHTML =
-"<strong>Parceria Confirmada com AuraSix Experience!</strong><br><br>" +
-"Empresa: " + parceiro.nome + "<br>" +
-"Oferece: " + parceiro.oferece + "<br>" +
-"Custo atual: R$ " + (parceiro.faturamento - parceiro.lucro).toFixed(2) + "<br>" +
-"Lucro projetado: R$ " + parceiro.lucro.toFixed(2);
-
+function fecharParceria(index){
+let p=parceiros[index];
+let div=document.getElementById("res"+index);
+div.style.display="block";
+div.innerHTML=`<strong>Parceria Confirmada com AuraSix Experience!</strong><br><br>
+Empresa: ${p.nome}<br>
+Oferece: ${p.oferece}<br>
+Lucro projetado: R$ ${p.lucro.toFixed(2)}`;
 atualizarRanking();
 }
 
-function atualizarRanking() {
-
-let lista = document.getElementById("rankingLista");
-lista.innerHTML = "";
-
-parceiros.sort((a,b) => b.lucro - a.lucro);
-
-parceiros.forEach(p => {
-lista.innerHTML += `<li>${p.nome} - Lucro: R$ ${p.lucro.toFixed(2)}</li>`;
+function atualizarRanking(){
+let lista=document.getElementById("rankingLista");
+lista.innerHTML="";
+parceiros.sort((a,b)=>b.lucro-a.lucro);
+parceiros.forEach(p=>{
+lista.innerHTML+=`<li>${p.nome} - Lucro: R$ ${p.lucro.toFixed(2)}</li>`;
 });
 }
 
