@@ -3,79 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AuraSix Experience | Central Estratégica de Parcerias</title>
+<title>AuraSix Experience | Central Executiva de Parcerias</title>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background: #0f0f1f;
-    color: #e0e0ff;
-    margin: 0;
-    padding: 20px;
+body{
+font-family:Arial, sans-serif;
+background:#0f0f1f;
+color:#e0e0ff;
+margin:0;
+padding:20px;
 }
 
-h1 {
-    text-align: center;
-    color: #7df9ff;
+h1{
+text-align:center;
+color:#7df9ff;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:20px;
+margin-top:30px;
 }
 
-.card {
-    background: #1a1a35;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,255,255,0.15);
+.card{
+background:#1a1a35;
+padding:20px;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,255,255,0.12);
 }
 
-.status { font-weight: bold; margin-bottom: 5px; }
-.verde { color: #00ff88; }
-.amarelo { color: #ffd700; }
-.vermelho { color: #ff4d4d; }
+.status{font-weight:bold;margin-bottom:6px;}
+.verde{color:#00ff88;}
+.amarelo{color:#ffd700;}
+.vermelho{color:#ff4d4d;}
 
-button {
-    background: #7df9ff;
-    border: none;
-    padding: 8px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 6px;
+button{
+background:#7df9ff;
+border:none;
+padding:8px;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+margin-top:6px;
 }
 
-button:hover { background: #00ffff; }
+button:hover{background:#00ffff;}
 
-select {
-    margin-top: 5px;
-    padding: 5px;
+select{margin-top:6px;padding:5px;}
+
+.resultado{
+margin-top:10px;
+padding:10px;
+background:#141428;
+border-radius:8px;
+display:none;
 }
 
-.resultado {
-    margin-top: 10px;
-    padding: 10px;
-    background: #141428;
-    border-radius: 8px;
-    display: none;
+.review{
+background:#101030;
+padding:8px;
+border-radius:6px;
+margin-bottom:6px;
+font-size:14px;
 }
 
-.review {
-    background: #0f0f25;
-    padding: 8px;
-    border-radius: 6px;
-    margin-bottom: 6px;
-    font-size: 14px;
-}
-
-.ranking {
-    margin-top: 40px;
-    background: #141428;
-    padding: 20px;
-    border-radius: 12px;
+.ranking{
+margin-top:40px;
+background:#141428;
+padding:20px;
+border-radius:12px;
 }
 </style>
 </head>
@@ -93,57 +90,276 @@ select {
 
 <script>
 
-function gerarAvaliacoes() {
-return [
-{empresa:"Vision Eventos", estrelas:"⭐⭐⭐⭐⭐", comentario:"Entrega impecável e público satisfeito."},
-{empresa:"Prime Fest", estrelas:"⭐⭐⭐⭐", comentario:"Boa organização e suporte rápido."},
-{empresa:"Urban Shows", estrelas:"⭐⭐⭐⭐⭐", comentario:"Excelente parceria estratégica."},
-{empresa:"Infinity Group", estrelas:"⭐⭐⭐", comentario:"Boa execução, mas pode melhorar."},
-{empresa:"Glow Produções", estrelas:"⭐⭐⭐⭐", comentario:"Ótimo custo-benefício."},
-{empresa:"LevelUp Experience", estrelas:"⭐⭐⭐⭐⭐", comentario:"Alta qualidade e profissionalismo."},
-{empresa:"NeoStage Eventos", estrelas:"⭐⭐⭐", comentario:"Serviço adequado ao valor."}
+let parceiros = [
+
+/* ================= 5 VERDES ================= */
+
+{
+nome:"Sabor Elite Buffet",
+perfil:"verde",
+custo:8750.50,
+faturamento:23890.75,
+oferece:"Buffet premium completo com chefs ao vivo, cardápio personalizado, estação gourmet temática, drinks autorais, sobremesas finas, equipe uniformizada e logística completa.",
+avaliacoes:[
+{empresa:"Platinum Eventos", estrelas:"⭐⭐⭐⭐⭐", comentario:"Experiência impecável do início ao fim."},
+{empresa:"Urban Concept", estrelas:"⭐⭐⭐⭐", comentario:"Excelente qualidade, pequeno atraso na montagem."},
+{empresa:"Impact Hub Live", estrelas:"⭐⭐⭐", comentario:"Muito bom, mas custo elevado."},
+{empresa:"Infinity Premium", estrelas:"⭐⭐⭐⭐⭐", comentario:"Público elogiou bastante a gastronomia."},
+{empresa:"Nobre Stage", estrelas:"⭐⭐⭐⭐", comentario:"Equipe organizada e profissional."},
+{empresa:"NextLevel Brasil", estrelas:"⭐⭐⭐", comentario:"Boa entrega, poderia inovar mais."},
+{empresa:"Vision Fest Group", estrelas:"⭐⭐⭐⭐⭐", comentario:"Recomendamos para eventos de alto padrão."}
+]
+},
+
+{
+nome:"LuxDecor Cenografia",
+perfil:"verde",
+custo:7320.80,
+faturamento:18650.90,
+oferece:"Cenografia futurista personalizada, painéis LED 3D, túneis instagramáveis, iluminação cênica inteligente e ambientação sensorial completa.",
+avaliacoes:[
+{empresa:"Glow Produções", estrelas:"⭐⭐⭐⭐⭐", comentario:"Transformou totalmente o ambiente."},
+{empresa:"Urban Wave Fest", estrelas:"⭐⭐⭐⭐", comentario:"Muito profissional e detalhista."},
+{empresa:"Stage Concept", estrelas:"⭐⭐⭐", comentario:"Visual bonito, mas montagem demorada."},
+{empresa:"Elite Arena", estrelas:"⭐⭐⭐⭐⭐", comentario:"Impacto visual impressionante."},
+{empresa:"ProEventos Corp", estrelas:"⭐⭐⭐⭐", comentario:"Ótimo acabamento."},
+{empresa:"Mega Vision Shows", estrelas:"⭐⭐⭐", comentario:"Preço acima da média."},
+{empresa:"Infinity Lights", estrelas:"⭐⭐⭐⭐⭐", comentario:"Experiência cenográfica memorável."}
+]
+},
+
+{
+nome:"TechVision Som & Luz",
+perfil:"verde",
+custo:9450.90,
+faturamento:26000.45,
+oferece:"Sistema de som profissional line array, iluminação inteligente DMX, efeitos especiais, painéis digitais e equipe técnica especializada.",
+avaliacoes:[
+{empresa:"Mega Stage Brasil", estrelas:"⭐⭐⭐⭐⭐", comentario:"Estrutura impecável."},
+{empresa:"SoundPro Live", estrelas:"⭐⭐⭐⭐", comentario:"Som potente e limpo."},
+{empresa:"Urban Beats", estrelas:"⭐⭐⭐", comentario:"Pequeno ajuste técnico necessário."},
+{empresa:"Vision Arena", estrelas:"⭐⭐⭐⭐⭐", comentario:"Equipamentos modernos."},
+{empresa:"Epic Night Fest", estrelas:"⭐⭐⭐", comentario:"Custo elevado."},
+{empresa:"NextShow Produções", estrelas:"⭐⭐⭐⭐", comentario:"Muito eficiente."},
+{empresa:"Infinity Sound Corp", estrelas:"⭐⭐⭐⭐⭐", comentario:"Melhor fornecedor da região."}
+]
+},
+
+{
+nome:"MediaPulse Digital",
+perfil:"verde",
+custo:5980.40,
+faturamento:21450.60,
+oferece:"Gestão completa de redes sociais, tráfego pago, cobertura ao vivo, criação de conteúdo estratégico e relatórios de desempenho.",
+avaliacoes:[
+{empresa:"StartX Eventos", estrelas:"⭐⭐⭐⭐⭐", comentario:"Alcance muito acima do esperado."},
+{empresa:"BrandUp Fest", estrelas:"⭐⭐⭐⭐", comentario:"Resultados consistentes."},
+{empresa:"Glow Media House", estrelas:"⭐⭐⭐", comentario:"Retorno demorou um pouco."},
+{empresa:"Connect Business Live", estrelas:"⭐⭐⭐⭐⭐", comentario:"Aumentou significativamente o público."},
+{empresa:"Impacto Brasil", estrelas:"⭐⭐⭐", comentario:"Poderia melhorar segmentação."},
+{empresa:"StageLab Produções", estrelas:"⭐⭐⭐⭐", comentario:"Equipe estratégica."},
+{empresa:"Vision Trend Eventos", estrelas:"⭐⭐⭐⭐⭐", comentario:"Excelente planejamento digital."}
+]
+},
+
+{
+nome:"FlashBar Experience",
+perfil:"verde",
+custo:6890.35,
+faturamento:17200.80,
+oferece:"Bar show com drinks neon, bartender performático, cardápio personalizado, mixologia temática e ativação de marca.",
+avaliacoes:[
+{empresa:"Vibe Eventos", estrelas:"⭐⭐⭐⭐⭐", comentario:"Experiência divertida e diferenciada."},
+{empresa:"Urban Nights", estrelas:"⭐⭐⭐⭐", comentario:"Drinks criativos."},
+{empresa:"Prime Stage", estrelas:"⭐⭐⭐", comentario:"Fila grande no pico."},
+{empresa:"Elite Glow Fest", estrelas:"⭐⭐⭐⭐⭐", comentario:"Sucesso absoluto."},
+{empresa:"Wave Experience", estrelas:"⭐⭐⭐", comentario:"Preço um pouco alto."},
+{empresa:"Infinity Party Corp", estrelas:"⭐⭐⭐⭐⭐", comentario:"Recomendamos fortemente."},
+{empresa:"Night Vision Shows", estrelas:"⭐⭐⭐⭐", comentario:"Ótima interação com público."}
+]
+},
+
+/* ================= 5 AMARELOS ================= */
+
+{
+nome:"StreetFood Prime",
+perfil:"amarelo",
+custo:7125.65,
+faturamento:16540.30,
+oferece:"Food trucks gourmet, hambúrguer artesanal, comida mexicana, opções vegetarianas e serviço rápido personalizado.",
+avaliacoes:[
+{empresa:"Urban Fest", estrelas:"⭐⭐⭐⭐", comentario:"Comida saborosa."},
+{empresa:"Glow Arena", estrelas:"⭐⭐⭐", comentario:"Atendimento mediano."},
+{empresa:"Prime Eventos RJ", estrelas:"⭐⭐⭐⭐", comentario:"Bom custo-benefício."},
+{empresa:"Mega Produções SP", estrelas:"⭐⭐", comentario:"Demora no atendimento."},
+{empresa:"Wave Shows", estrelas:"⭐⭐⭐⭐", comentario:"Variedade interessante."},
+{empresa:"Stage Plus", estrelas:"⭐⭐⭐", comentario:"Organização poderia melhorar."},
+{empresa:"Night Corp", estrelas:"⭐⭐⭐⭐", comentario:"Público gostou bastante."}
+]
+},
+
+{
+nome:"ClickPro Fotografia",
+perfil:"amarelo",
+custo:4830.90,
+faturamento:13250.40,
+oferece:"Cobertura fotográfica profissional, vídeos promocionais, edição expressa e entrega digital em alta resolução.",
+avaliacoes:[
+{empresa:"Vision Eventos", estrelas:"⭐⭐⭐⭐", comentario:"Fotos de ótima qualidade."},
+{empresa:"Elite Stage", estrelas:"⭐⭐⭐", comentario:"Entrega atrasou um pouco."},
+{empresa:"Urban Connect", estrelas:"⭐⭐⭐⭐", comentario:"Equipe simpática."},
+{empresa:"NextLive Brasil", estrelas:"⭐⭐⭐", comentario:"Bom trabalho geral."},
+{empresa:"Impact Fest", estrelas:"⭐⭐", comentario:"Algumas fotos desfocadas."},
+{empresa:"Infinity Group", estrelas:"⭐⭐⭐⭐", comentario:"Resultado satisfatório."},
+{empresa:"Glow Premium", estrelas:"⭐⭐⭐⭐⭐", comentario:"Excelente cobertura."}
+]
+},
+
+{
+nome:"DecorMix Produções",
+perfil:"amarelo",
+custo:6540.70,
+faturamento:15890.20,
+oferece:"Decoração temática personalizada, arranjos florais, iluminação ambiente e ambientação criativa.",
+avaliacoes:[
+{empresa:"Urban Stage", estrelas:"⭐⭐⭐⭐", comentario:"Visual agradável."},
+{empresa:"Mega Arena", estrelas:"⭐⭐⭐", comentario:"Montagem lenta."},
+{empresa:"Vision Light", estrelas:"⭐⭐⭐⭐", comentario:"Bom acabamento."},
+{empresa:"Prime Fest Brasil", estrelas:"⭐⭐", comentario:"Não surpreendeu."},
+{empresa:"Next Events", estrelas:"⭐⭐⭐⭐", comentario:"Ótimo custo-benefício."},
+{empresa:"Glow Produções", estrelas:"⭐⭐⭐", comentario:"Trabalho regular."},
+{empresa:"Infinity Night", estrelas:"⭐⭐⭐⭐", comentario:"Ambiente bonito."}
+]
+},
+
+{
+nome:"Interactive Play Zone",
+perfil:"amarelo",
+custo:5340.20,
+faturamento:14990.10,
+oferece:"Área interativa com jogos tecnológicos, experiências em realidade virtual e ativações digitais personalizadas.",
+avaliacoes:[
+{empresa:"Tech Fest Brasil", estrelas:"⭐⭐⭐⭐", comentario:"Experiência divertida."},
+{empresa:"Urban Play", estrelas:"⭐⭐⭐", comentario:"Alguns equipamentos travaram."},
+{empresa:"Glow Experience", estrelas:"⭐⭐⭐⭐⭐", comentario:"Público jovem adorou."},
+{empresa:"Stage Fun Corp", estrelas:"⭐⭐", comentario:"Precisa melhorar suporte técnico."},
+{empresa:"Vision Tech Live", estrelas:"⭐⭐⭐⭐", comentario:"Boa inovação."},
+{empresa:"Next Arena", estrelas:"⭐⭐⭐", comentario:"Experiência média."},
+{empresa:"Infinity Digital", estrelas:"⭐⭐⭐⭐", comentario:"Interatividade positiva."}
+]
+},
+
+{
+nome:"SoundBeat Eventos",
+perfil:"amarelo",
+custo:8210.55,
+faturamento:17680.75,
+oferece:"Som profissional, iluminação básica e suporte técnico durante o evento.",
+avaliacoes:[
+{empresa:"Urban Beats", estrelas:"⭐⭐⭐⭐", comentario:"Som de qualidade."},
+{empresa:"Prime Stage", estrelas:"⭐⭐⭐", comentario:"Iluminação simples."},
+{empresa:"Vision Arena", estrelas:"⭐⭐⭐⭐", comentario:"Atendeu bem."},
+{empresa:"Mega Fest SP", estrelas:"⭐⭐", comentario:"Problemas no microfone."},
+{empresa:"Glow Night", estrelas:"⭐⭐⭐⭐", comentario:"Bom resultado final."},
+{empresa:"Next Show Live", estrelas:"⭐⭐⭐", comentario:"Regular."},
+{empresa:"Infinity Sound RJ", estrelas:"⭐⭐⭐⭐", comentario:"Custo justo."}
+]
+},
+
+/* ================= 5 VERMELHOS ================= */
+
+{
+nome:"SafeControl Segurança",
+perfil:"vermelho",
+custo:4210.80,
+faturamento:9320.45,
+oferece:"Equipe de segurança básica, controle de acesso e monitoramento simples.",
+avaliacoes:[
+{empresa:"Urban Fest", estrelas:"⭐⭐", comentario:"Faltou organização."},
+{empresa:"Mega Eventos", estrelas:"⭐⭐⭐", comentario:"Serviço básico."},
+{empresa:"Glow Stage", estrelas:"⭐⭐", comentario:"Equipe despreparada."},
+{empresa:"Prime Night", estrelas:"⭐⭐⭐", comentario:"Atendeu parcialmente."},
+{empresa:"Vision Arena", estrelas:"⭐⭐", comentario:"Precisa melhorar."},
+{empresa:"Next Show", estrelas:"⭐⭐⭐", comentario:"Regular."},
+{empresa:"Infinity Fest", estrelas:"⭐⭐", comentario:"Não recomendo para eventos grandes."}
+]
+},
+
+{
+nome:"PromoLite Mídia",
+perfil:"vermelho",
+custo:3780.60,
+faturamento:8840.30,
+oferece:"Divulgação simples em redes sociais e banners digitais básicos.",
+avaliacoes:[
+{empresa:"Urban Connect", estrelas:"⭐⭐", comentario:"Alcance limitado."},
+{empresa:"Glow Corp", estrelas:"⭐⭐⭐", comentario:"Serviço básico."},
+{empresa:"Prime Fest RJ", estrelas:"⭐⭐", comentario:"Pouco engajamento."},
+{empresa:"Vision Stage", estrelas:"⭐⭐⭐", comentario:"Resultado mediano."},
+{empresa:"Next Brasil", estrelas:"⭐⭐", comentario:"Não atendeu expectativas."},
+{empresa:"Infinity Media", estrelas:"⭐⭐⭐", comentario:"Regular."},
+{empresa:"Mega Night SP", estrelas:"⭐⭐", comentario:"Precisa evoluir."}
+]
+},
+
+{
+nome:"Basic Drinks Bar",
+perfil:"vermelho",
+custo:5120.95,
+faturamento:10980.25,
+oferece:"Bar tradicional com cardápio padrão, bebidas convencionais e equipe reduzida.",
+avaliacoes:[
+{empresa:"Urban Party", estrelas:"⭐⭐⭐", comentario:"Cumpriu o básico."},
+{empresa:"Glow Fest", estrelas:"⭐⭐", comentario:"Pouca variedade."},
+{empresa:"Prime Stage", estrelas:"⭐⭐⭐", comentario:"Atendimento regular."},
+{empresa:"Mega Eventos RJ", estrelas:"⭐⭐", comentario:"Demora no preparo."},
+{empresa:"Vision Corp", estrelas:"⭐⭐⭐", comentario:"Preço razoável."},
+{empresa:"Infinity Night", estrelas:"⭐⭐", comentario:"Nada inovador."},
+{empresa:"Next Arena", estrelas:"⭐⭐⭐", comentario:"Experiência simples."}
+]
+},
+
+{
+nome:"StageSimples Estrutura",
+perfil:"vermelho",
+custo:6890.40,
+faturamento:12150.80,
+oferece:"Palco modular básico, estrutura simples e montagem padrão.",
+avaliacoes:[
+{empresa:"Urban Stage", estrelas:"⭐⭐", comentario:"Estrutura frágil."},
+{empresa:"Glow Arena", estrelas:"⭐⭐⭐", comentario:"Serviço básico."},
+{empresa:"Prime Fest", estrelas:"⭐⭐", comentario:"Não surpreendeu."},
+{empresa:"Mega Produções", estrelas:"⭐⭐⭐", comentario:"Atendeu parcialmente."},
+{empresa:"Vision Night", estrelas:"⭐⭐", comentario:"Pouco acabamento."},
+{empresa:"Infinity Eventos", estrelas:"⭐⭐⭐", comentario:"Regular."},
+{empresa:"Next Brasil Shows", estrelas:"⭐⭐", comentario:"Precisa melhorar."}
+]
+},
+
+{
+nome:"EventStart Apoio",
+perfil:"vermelho",
+custo:4500.50,
+faturamento:9900.60,
+oferece:"Equipe de apoio convencional, recepção simples e organização básica.",
+avaliacoes:[
+{empresa:"Urban Connect", estrelas:"⭐⭐", comentario:"Falta treinamento."},
+{empresa:"Glow Premium", estrelas:"⭐⭐⭐", comentario:"Serviço básico."},
+{empresa:"Prime Arena", estrelas:"⭐⭐", comentario:"Equipe desorganizada."},
+{empresa:"Mega Fest Brasil", estrelas:"⭐⭐⭐", comentario:"Cumpriu o mínimo."},
+{empresa:"Vision Eventos", estrelas:"⭐⭐", comentario:"Não recomendaria para grandes eventos."},
+{empresa:"Infinity Corp", estrelas:"⭐⭐⭐", comentario:"Regular."},
+{empresa:"Next Stage Live", estrelas:"⭐⭐", comentario:"Precisa evoluir."}
+]
+}
+
 ];
-}
 
-let parceiros = [];
-
-function criarParceiro(nome, perfil, custo, faturamento, oferece) {
-parceiros.push({
-nome, perfil, custo, faturamento,
-lucro: faturamento - custo,
-oferece,
-avaliacoes: gerarAvaliacoes()
-});
-}
-
-/* 5 VERDES */
-criarParceiro("Sabor Elite Buffet","verde",8750.50,23890.75,"Buffet premium, chefs ao vivo, ilha gourmet temática e drinks exclusivos.");
-criarParceiro("LuxDecor Cenografia","verde",7320.80,18650.90,"Cenografia futurista, painéis LED 3D e ambientes instagramáveis.");
-criarParceiro("MediaPulse Digital","verde",5980.40,21450.60,"Marketing digital, tráfego pago e cobertura ao vivo.");
-criarParceiro("FlashBar Experience","verde",6890.35,17200.80,"Bar show com drinks neon, bartenders performáticos.");
-criarParceiro("TechVision Som & Luz","verde",9450.90,26000.45,"Iluminação inteligente, palco digital e efeitos especiais.");
-
-/* 5 AMARELOS */
-criarParceiro("DecorMix Produções","amarelo",6540.70,15890.20,"Decoração temática personalizada e ambientação criativa.");
-criarParceiro("StreetFood Prime","amarelo",7125.65,16540.30,"Food trucks gourmet e cardápios variados.");
-criarParceiro("ClickPro Fotografia","amarelo",4830.90,13250.40,"Cobertura fotográfica e vídeos promocionais.");
-criarParceiro("SoundBeat Eventos","amarelo",8210.55,17680.75,"Som profissional e iluminação básica.");
-criarParceiro("Interactive Play Zone","amarelo",5340.20,14990.10,"Área interativa com jogos tecnológicos e experiências VR.");
-
-/* 5 VERMELHOS */
-criarParceiro("SafeControl Segurança","vermelho",4210.80,9320.45,"Equipe de segurança básica e controle de acesso.");
-criarParceiro("PromoLite Mídia","vermelho",3780.60,8840.30,"Divulgação simples em redes sociais.");
-criarParceiro("Basic Drinks Bar","vermelho",5120.95,10980.25,"Bar tradicional com cardápio padrão.");
-criarParceiro("StageSimples Estrutura","vermelho",6890.40,12150.80,"Palco modular básico e estrutura simples.");
-criarParceiro("EventStart Apoio","vermelho",4500.50,9900.60,"Equipe de apoio e recepção convencional.");
-
-function gerarCards() {
-
-let container = document.getElementById("cards");
-
+function gerarCards(){
+let container=document.getElementById("cards");
 parceiros.forEach((p,index)=>{
-
-container.innerHTML += `
+p.lucro=p.faturamento-p.custo;
+container.innerHTML+=`
 <div class="card">
 <h2>${p.nome}</h2>
 <p class="status ${p.perfil}">Perfil: ${p.perfil.toUpperCase()}</p>
@@ -153,7 +369,7 @@ container.innerHTML += `
 
 <button onclick="verAvaliacoes(${index})">Ver Avaliações</button>
 
-<select onchange="negociar(${index}, this.value)">
+<select onchange="negociar(${index},this.value)">
 <option value="0">Sem desconto</option>
 <option value="5">Desconto 5%</option>
 <option value="10">Desconto 10%</option>
@@ -166,7 +382,6 @@ container.innerHTML += `
 </div>
 `;
 });
-
 atualizarRanking();
 }
 
@@ -201,7 +416,6 @@ let div=document.getElementById("res"+index);
 div.style.display="block";
 div.innerHTML=`<strong>Parceria Confirmada com AuraSix Experience!</strong><br><br>
 Empresa: ${p.nome}<br>
-Oferece: ${p.oferece}<br>
 Lucro projetado: R$ ${p.lucro.toFixed(2)}`;
 atualizarRanking();
 }
